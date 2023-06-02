@@ -54,8 +54,8 @@ def intersectCirc(circfile,annotation,fasta):
     
     for itm in circfile:
         circ = BedTool([itm])
-        a = annotation.intersect(circ)
-        a = a.sequence(fi=fasta)
+        a = annotation.intersect( circ, s=True, )
+        a = a.sequence(fi=fasta, s=True)
         fa = open(a.seqfn).readlines()
         seq = getfa(fa)
         
